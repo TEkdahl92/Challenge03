@@ -1,4 +1,9 @@
 // Assignment code here
+// First i'll name the variables I need to create a random password.
+// Then i'll create the if statements for each individual question.
+// create prompts for the questions.
+// make a for loop because if I dont, it will only return 1 character(tested doing console.log).
+// console log to see if selections are working.
 var characterLength = 8;
 var specialCharacter = ['!','?','#','$','&','*','+','%'];
 var lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
@@ -20,13 +25,14 @@ function generatePassword() {
    
 function getPrompts() {
     choice = [];
-
+// created the prompt for how many characters you would like in your password and did a parseInt so that someone would have to reply with a number between 8 and 128.
     characterLength = parseInt(prompt("How many characters would you like to have in your password? (8-128)"));
-   
+//   if you provide a letter, a number less than 8 or greater than 128, you will be prompted to try again. 
 if (isNaN(characterLength) || characterLength < 8 || characterLength > 128) {    
     alert("Character length has to be between 8 and 128 characters. Please try again");
     return false;
-}
+} 
+// did the choice.contact method because it merges my 2 arrays which were the choice and lowerCase, uppercase etc.
 if (confirm("Would you like lowercase letters in your password?")) {
     choice = choice.concat(lowerCase);
 }
@@ -39,6 +45,7 @@ if (confirm("Would you like numbers in your password?")) {
 if (confirm("Would you like special characters in your password?")) {
     choice = choice.concat(specialCharacter);
 }
+// created a console log to check if the selections were generating a random character
 console.log(choice);
 console.log(choice[Math.floor(Math.random()*choice.length)]);
 
